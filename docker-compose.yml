@@ -1,0 +1,24 @@
+version: "3.1"
+services:
+  node:
+    build: ./
+    restart: always
+    stop_signal: SIGKILL
+    volumes:
+        - ./src:/opt/app/src
+    # Enable this during local development
+    ports:
+      - "80:80"
+    environment:
+      - VIRTUAL_HOST=travels.lenders.dev
+      - LETSENCRYPT_HOST=travels.lenders.dev
+    networks:
+      - reverse-proxy
+    # command: ['sleep', '10000']
+
+
+networks:
+  reverse-proxy:
+    # Disable this during local development
+    # external:
+    #   name: reverse-proxy_external

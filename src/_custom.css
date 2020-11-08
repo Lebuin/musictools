@@ -1,0 +1,138 @@
+@layer base {
+  html {
+    @apply
+      h-full
+      font-light
+    ;
+  }
+
+  body {
+    @apply
+      flex
+      flex-col
+      min-h-full
+
+      text-base
+
+      bg-black
+      text-white
+    ;
+  }
+
+  div {
+    @apply
+      flex
+      flex-col
+    ;
+  }
+
+  svg {
+    width: 36px;
+    height: 36px;
+    stroke-width: 1.3333;
+  }
+}
+
+
+@layer components {
+  .btn {
+    @apply
+      flex-row
+      items-baseline
+
+      px-8
+      py-4
+
+      select-none
+
+      transition
+      duration-100
+    ;
+
+    &:not(:disabled):not(.disabled) {
+      @apply cursor-pointer;
+
+      &:hover,
+      &:focus {
+        @apply bg-translucent-100;
+      }
+
+      &:active {
+        @apply bg-translucent-200;
+      }
+    }
+
+
+
+
+    &--round {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+
+      @apply
+        justify-center
+        items-center
+        p-0
+      ;
+    }
+
+
+    &--primary {
+      @apply
+        bg-grey-400
+        text-black
+      ;
+
+      &:not(:disabled):not(.disabled) {
+        @apply bg-red-400;
+
+        &:hover,
+        &:focus {
+          @apply
+            bg-red-300
+          ;
+        }
+
+        &:active {
+          @apply
+            bg-red-500
+          ;
+        }
+      }
+    }
+  }
+
+
+
+  .error-notice {
+    &__wrapper {
+      @apply
+        absolute
+        top-0
+        bottom-0
+        left-0
+        right-0
+
+        p-2
+
+        flex
+        justify-center
+        items-center
+      ;
+    }
+
+    @apply
+      bg-red-100
+
+      border
+      rounded
+      border-red-300
+
+      text-red-600
+      text-sm
+
+      p-2
+    ;
+  }
+}
